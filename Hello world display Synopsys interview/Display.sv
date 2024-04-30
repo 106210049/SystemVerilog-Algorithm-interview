@@ -36,7 +36,7 @@ module Display#(parameter pNO_LED=8)(
       LED[7]<=temp_mem;
     end
   end
-  always@(posedge clk)	begin
+  always_ff@(posedge clk)	begin
     if(save)	begin
      temp_mem<=LED[0];
     end
