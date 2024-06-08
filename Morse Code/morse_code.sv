@@ -11,11 +11,11 @@ module MORSE_CODE(
     input logic en,
     input logic [4:0] sel,
     input logic rst_n,
-    output logic out,
-    output logic [pCNT_WIDTH-1:0] counter_debug,
-    output logic [2:0] index_debug,
-    output logic [1:0] state_debug,
-    output logic [4:0] morse_code_debug
+    output logic out
+    // output logic [pCNT_WIDTH-1:0] counter_debug,
+    // output logic [2:0] index_debug,
+    // output logic [1:0] state_debug,
+    // output logic [4:0] morse_code_debug
 );
 
 
@@ -36,7 +36,7 @@ module MORSE_CODE(
     logic [4:0] morse_code;
     logic [2:0] current_index, next_index;
     logic [pCNT_WIDTH-1:0] pCOUNTER_VAL, counter_var;
-  	reg [4:0]sel_temp;
+  	// reg [4:0]sel_temp;
     always_comb begin
         case (sel)
             5'b00000: morse_code = 5'bxxx10; // A: .-
@@ -158,9 +158,9 @@ module MORSE_CODE(
     end
 
     assign out = current_signal.signal_out;
-    assign counter_debug = counter_var;
-    assign index_debug = current_index;
-    assign state_debug = morse_current_state;
-    assign morse_code_debug = morse_code;
-	assign sel_temp=sel;
+ //    assign counter_debug = counter_var;
+ //    assign index_debug = current_index;
+ //    assign state_debug = morse_current_state;
+ //    assign morse_code_debug = morse_code;
+	// assign sel_temp=sel;
 endmodule: MORSE_CODE
